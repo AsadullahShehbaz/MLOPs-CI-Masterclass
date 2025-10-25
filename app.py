@@ -1,20 +1,17 @@
 import streamlit as st
-import streamlit.components.v1 as components
 
-st.subheader("🎥 Enter YouTube Video ID:")
+# Streamlit UI
+st.title("Power Calculator")
 
-# Create input field and store the value
-video_id = st.text_input("Video Link ID", key="linkid")
+# Get user input
+n = st.number_input("Enter an integer:", value=1, step=1)
 
-# Only embed when input is not empty
-if video_id:
-    embed_url = f"https://www.youtube.com/embed/{video_id}?rel=0"
+# Calculate results
+square = n ** 2
+cube = n ** 3
+fifth_power = n ** 5
 
-    # Embed using HTML
-    components.html(f"""
-        <iframe width="700" height="400"
-        src="{embed_url}"
-        frameborder="0"
-        allowfullscreen>
-        </iframe>
-    """, height=400)
+# Display resultss
+st.write(f"The square of {n} is: {square}")
+st.write(f"The cube of {n} is: {cube}")
+st.write(f"The fifth power of {n} is: {fifth_power}")
